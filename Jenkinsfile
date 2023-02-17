@@ -4,7 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building'    
-        sh 'podman build -f Dockerfile --isolation=chroot --tag python:daniel ; echo'
+        sh 'podman build -f Dockerfile --isolation=chroot --tag python:daniel --security-opt seccomp=unconfined'
       }
     }
     stage('Test') {
